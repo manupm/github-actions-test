@@ -1,8 +1,23 @@
 name: Actions Workflow
 
 on:
-  repository_dispatch:
-    types: [build]
+  push:
+    branches:
+      - master
+      - 'feature/*' # matches feature/featA, feature/featB
+      - 'feature/**'
+      - '!feature/featC' # ignores this branch
+    # branches-ignore:
+    tags:
+      - v1.*
+    #tags-ignore:
+    paths:
+      - '**.js'
+      - '!filename.js'
+    # paths-ignore:
+
+  # repository_dispatch:
+  #  types: [build]
 
   # schedule:
   #  - cron: "0/5 * * * *"  # runs every 5 minutes
