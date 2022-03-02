@@ -24,6 +24,7 @@ jobs:
         run: |
           pwd
           ls -ls
+          chmod +x script.sh
       - name: run a script
         uses: docker://node:12.14.1-alpine3.10
         with:
