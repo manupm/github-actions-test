@@ -15,11 +15,16 @@ jobs:
           entrypoint: '/bin/echo'
           args: 'Hello World'
       - name: log node version
-        if: always()  # always runs
         uses: docker://node:12.14.1-alpine3.10
         with:
           entrypoint: /usr/local/bin/node
-          args: '-v'
+          args: -v
+      - uses: actions/checkout@v1
+      - name: run a script
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: ./script.sh
+          args: "Some string"
 
 #  node-docker:
 #    runs-on: ubuntu-latest
