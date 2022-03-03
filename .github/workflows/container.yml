@@ -23,8 +23,8 @@ jobs:
       - name: List Files After Checkout
         run: |
           pwd
-          ls -ls
           chmod +x script.sh
+          ls -ls          
       - name: run a script
         uses: docker://node:12.14.1-alpine3.10
         with:
